@@ -172,7 +172,7 @@ local Window = Rayfield:CreateWindow({
   local Button = SaitamaTab:CreateButton({
 	Name = "Isagi",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Nova2ezz/Sukuna/refs/heads/main/KenjakuTsbOnYt"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CensoredScripts/Scripts/refs/heads/main/Script"))()
 		Rayfield:Notify({
 			Title = "Be Careful With Final Shot! 🗣️",
 			Content = " I WILL become the best..",
