@@ -50,6 +50,19 @@ local Window = Rayfield:CreateWindow({
 	end,
  })
 
+  local Button = SaitamaTab:CreateButton({
+	Name = "Isagi",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CensoredScripts/Scripts/refs/heads/main/Script"))()
+		Rayfield:Notify({
+			Title = "Be Careful With Final Shot! 🗣️",
+			Content = " I WILL become the best..",
+			Duration = 6.5,
+			Image = 0,
+		 })
+	end,
+ })
+
  local Button = SaitamaTab:CreateButton({
 	Name = "Gojo",
 	Callback = function()
@@ -64,6 +77,18 @@ local Window = Rayfield:CreateWindow({
 	end,
  })
 
+  local Button = SaitamaTab:CreateButton({
+	Name = "Custom Moveset",
+	Callback = function()
+		loadstring(game:HttpGet("loadstring(game:HttpGet("https:/ /pastebin.com/raw/V4Ptawxz",true))()"))()
+		Rayfield:Notify({
+			Title = "Not inspired from anything",
+			Content = "but it's still pretty cool",
+			Duration = 6.5,
+			Image = 0,
+		 })
+	end,
+ })
 
  local Button = SaitamaTab:CreateButton({
 	Name = "Hakari",
@@ -169,15 +194,4 @@ local Window = Rayfield:CreateWindow({
 	end,
  })
  
-  local Button = SaitamaTab:CreateButton({
-	Name = "Isagi",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/CensoredScripts/Scripts/refs/heads/main/Script"))()
-		Rayfield:Notify({
-			Title = "Be Careful With Final Shot! 🗣️",
-			Content = " I WILL become the best..",
-			Duration = 6.5,
-			Image = 0,
-		 })
-	end,
- })
+
