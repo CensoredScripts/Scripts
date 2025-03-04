@@ -79,12 +79,12 @@ local lootTable = {
 local hasRolled = false
 button.MouseButton1Click:Connect(function()
     if hasRolled then
-        resultLabel.Text = "❌ Reset to Roll Again!"
+        resultLabel.Text = "❌ bro just reset"
         return
     end
 
     hasRolled = true
-    button.Text = "❌ bro just reset"
+    button.Text = "❌ Reset to Roll Again!"
 
     rollingSound:Play()
 
