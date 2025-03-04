@@ -1,0 +1,113 @@
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Parent = game:GetService("CoreGui")
+
+local toggleButton = Instance.new("ImageButton", gui)
+toggleButton.Size = UDim2.new(0, 50, 0, 50)
+toggleButton.Position = UDim2.new(0, 10, 0.5, -25)
+toggleButton.Image = "rbxassetid://80177015557659"
+toggleButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+toggleButton.Draggable = true
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 262, 0, 225)
+frame.Position = UDim2.new(0.5, -131, 0.5, -112)
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+frame.BorderSizePixel = 0
+frame.ClipsDescendants = true
+frame.Visible = false
+
+toggleButton.MouseButton1Click:Connect(function()
+    frame.Visible = not frame.Visible
+end)
+
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, 0, 0, 38)
+title.Position = UDim2.new(0, 0, 0.05, 0)
+title.Text = "TSB RNG"
+title.TextColor3 = Color3.fromRGB(255, 255, 0)
+title.TextSize = 22
+title.Font = Enum.Font.GothamBold
+title.BackgroundTransparency = 1
+
+local button = Instance.new("TextButton", frame)
+button.Size = UDim2.new(0.8, 0, 0, 38)
+button.Position = UDim2.new(0.1, 0, 0.7, 0)
+button.Text = "🎲 Roll Now!"
+button.Font = Enum.Font.GothamBold
+button.TextSize = 18
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+
+local resultLabel = Instance.new("TextLabel", frame)
+resultLabel.Size = UDim2.new(1, 0, 0, 38)
+resultLabel.Position = UDim2.new(0, 0, 0.4, 0)
+resultLabel.Text = "Result: ???"
+resultLabel.TextScaled = true
+resultLabel.Font = Enum.Font.GothamBold
+resultLabel.TextSize = 18
+resultLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+resultLabel.BackgroundTransparency = 1
+
+local rollingSound = Instance.new("Sound", gui)
+rollingSound.SoundId = "rbxassetid://70482547486758"
+rollingSound.Volume = 2
+rollingSound.Looped = true
+
+local winSound = Instance.new("Sound", gui)
+winSound.SoundId = "rbxassetid://7933571710"
+winSound.Volume = 2
+
+local lootTable = {
+    {item = "🔵 Gojo", chance = 25, func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/refs/heads/main/LatestV2.lua"))()
+    end},
+    {item = "⚫ JJS Gojo", chance = 20, func = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/JcBoomin/a63e9ac3e90cef03ecf37e997fd21632/raw/98b567b81f61bb30042e0078b78f3fb24685fb8d/Gojo",true))()
+    end},
+    {item = "🟣 Hakari", chance = 15, func = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/eEDYWj8p"))()
+    end},
+    {item = "⚡ Kashimo", chance = 10, func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/damir512/Kashimo/main/Protected_7491278457865044.txt"))()
+    end},
+    {item = "🔴 Sukuna", chance = 30, func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nova2ezz/Sukuna/refs/heads/main/KenjakuTsbOnYt"))()
+    end}
+}
+
+local hasRolled = false
+button.MouseButton1Click:Connect(function()
+    if hasRolled then
+        resultLabel.Text = "❌ Reset to Roll Again!"
+        return
+    end
+
+    hasRolled = true
+    button.Text = "❌ bro just reset"
+
+    rollingSound:Play()
+
+    local timeToSpin = 3
+    local startTime = tick()
+    
+    while tick() - startTime < timeToSpin do
+        local randomItem = lootTable[math.random(1, #lootTable)]
+        resultLabel.Text = "🎰 " .. randomItem.item .. " 🎰"
+        wait(0.1)
+    end
+
+    rollingSound:Stop()
+    winSound:Play()
+
+    local chosenItem = lootTable[math.random(1, #lootTable)]
+    resultLabel.Text = "🎉 " .. chosenItem.item .. " 🎉"
+    
+    chosenItem.func()
+end)
+
+player.CharacterAdded:Connect(function()
+    hasRolled = false
+    button.Text = "🎲 Roll"
+    resultLabel.Text = "This is a W.I.P just sayin"
+end)
