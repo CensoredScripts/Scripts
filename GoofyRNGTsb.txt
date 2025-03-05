@@ -1,6 +1,6 @@
 -- hi people that went into the raw paste
 -- im too lazy to obfuscate this and also the emojis
--- would break so not worth it man.. skid this if u wanna
+-- would break so not worth it man.. I will catch ya skidders 😡
 
 local a = game.Players.LocalPlayer
 local b = Instance.new("ScreenGui")
