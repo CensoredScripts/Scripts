@@ -1,0 +1,198 @@
+-- hi people that went into the raw paste
+-- im too lazy to obfuscate this and also the emojis
+-- would break so not worth it man.. skid this if u wanna
+
+local a = game.Players.LocalPlayer
+local b = Instance.new("ScreenGui")
+b.Parent = game:GetService("CoreGui")
+
+local function c(d, e)
+    local f = Instance.new("UICorner", d)
+    f.CornerRadius = UDim.new(0, e)
+end
+
+local g = Instance.new("ImageButton", b)
+g.Size = UDim2.new(0, 50, 0, 50)
+g.Position = UDim2.new(0, 10, 0.5, -25)
+g.Image = "rbxassetid://80177015557659"
+g.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+g.Draggable = true
+c(g, 10)
+
+local h = Instance.new("Frame", b)
+h.Size = UDim2.new(0, 262, 0, 225)
+h.Position = UDim2.new(0.5, -131, 0.5, -112)
+h.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+h.BorderSizePixel = 0
+h.ClipsDescendants = true
+h.Visible = false
+c(h, 10)
+
+g.MouseButton1Click:Connect(function()
+    h.Visible = not h.Visible
+end)
+
+local i = Instance.new("TextLabel", h)
+i.Size = UDim2.new(1, 0, 0, 38)
+i.Position = UDim2.new(0, 0, 0.05, 0)
+i.Text = "TSB RNG"
+i.TextColor3 = Color3.fromRGB(255, 255, 255)
+i.TextSize = 24
+i.Font = Enum.Font.SciFi
+i.BackgroundTransparency = 1
+
+local j = Instance.new("TextButton", h)
+j.Size = UDim2.new(0.8, 0, 0, 38)
+j.Position = UDim2.new(0.1, 0, 0.7, 0)
+j.Text = "🎲 Roll Now!"
+j.Font = Enum.Font.GothamBold
+j.TextSize = 18
+j.TextColor3 = Color3.fromRGB(255, 255, 255)
+j.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+c(j, 10)
+
+local k = Instance.new("TextButton", h)
+k.Size = UDim2.new(0.8, 0, 0, 30)
+k.Position = UDim2.new(0.1, 0, 0.85, 0)
+k.Text = "⏩ Skip"
+k.Font = Enum.Font.Gotham
+k.TextSize = 16
+k.TextColor3 = Color3.fromRGB(255, 255, 255)
+k.BackgroundColor3 = Color3.fromRGB(255, 85, 85)
+k.Visible = false
+c(k, 10)
+
+local l = Instance.new("TextLabel", h)
+l.Size = UDim2.new(1, 0, 0, 38)
+l.Position = UDim2.new(0, 0, 0.4, 0)
+l.Text = "Start Rolling..."
+l.TextScaled = true
+l.Font = Enum.Font.GothamBold
+l.TextSize = 18
+l.TextColor3 = Color3.fromRGB(255, 255, 255)
+l.BackgroundTransparency = 1
+c(l, 10)
+
+local m = Instance.new("TextLabel", h)
+m.Size = UDim2.new(1, 0, 0, 15)
+m.Position = UDim2.new(0, 0, 0.55, 0)
+m.Text = ""
+m.TextScaled = true
+m.Font = Enum.Font.GothamBold
+m.TextSize = 12
+m.TextColor3 = Color3.fromRGB(180, 180, 180)
+m.BackgroundTransparency = 1
+
+local n = Instance.new("Sound", b)
+n.SoundId = "rbxassetid://70482547486758"
+n.Volume = 2
+n.Looped = true
+
+local o = Instance.new("Sound", b)
+o.SoundId = "rbxassetid://7933571710"
+o.Volume = 2
+
+local function p(q)
+    return "1 in " .. math.floor(100 / q)
+end
+
+-- pls owners of these scripts dont
+-- kill me ill delete ur script from here if u want
+local r = {
+    {item = "🔵 Gojo", chance = 25, func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/refs/heads/main/LatestV2.lua"))()
+    end},
+    {item = "⚫ JJS Gojo", chance = 20, func = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/JcBoomin/a63e9ac3e90cef03ecf37e997fd21632/raw/98b567b81f61bb30042e0078b78f3fb24685fb8d/Gojo", true))()
+    end},
+    {item = "🔴 Sukuna", chance = 30, func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nova2ezz/Sukuna/refs/heads/main/KenjakuTsbOnYt"))()
+    end},
+    {item = "⚔️ Heian Era Sukuna", chance = 10, func = function() 
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/damir512/sukunasaitamav1/main/thescript", true))()
+    end},
+    {item = "🗑️ Trash Can Man", chance = 5, func = function() 
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/yes1nt/yes/refs/heads/main/Trashcan%20Man", true))()
+    end},
+    {item = "🔨 Jun", chance = 10, func = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/GoldenHeads2/f66279000c58a020e894a6db44914838/raw/62e53e1acacec0b38b43cd0f594292c32e09c39b/gistfile1.txt"))()
+    end},
+    {item = "⚽🔵 Isagi", chance = 15, func = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/CensoredScripts/Scripts/refs/heads/main/Script'))()
+    end},
+    {item = "🌌 Boros", chance = 8, func = function()
+        loadstring(game:HttpGet("https://paste.ee/r/XPIH5"))()
+    end}
+}
+
+local s = false
+j.MouseButton1Click:Connect(function()
+    if s then
+        l.Text = "❌ I TOLD YOU TO RESET!!"
+        l.TextColor3 = Color3.fromRGB(255, 255, 255)
+        return
+    end
+
+    s = true
+    j.Text = "❌ Reset to Roll Again!"
+    k.Visible = true
+
+    n:Play()
+    local t = 3
+    local u = tick()
+
+    while tick() - u < t do
+        local v = r[math.random(1, #r)]
+        l.Text = "🎰 " .. v.item .. " 🎰"
+        task.wait(0.1)
+    end
+
+    n:Stop()
+    o:Play()
+
+    local w = r[math.random(1, #r)]
+    l.Text = "🎉 " .. w.item .. " 🎉"
+    m.Text = "Odds: " .. p(w.chance)
+
+    w.func()
+end)
+
+k.MouseButton1Click:Connect(function()
+    local x = a.Character
+    if x then
+        local y = x:FindFirstChildOfClass("Humanoid")
+        if y then
+            y.Health = 0
+        end
+    end
+end)
+
+a.CharacterAdded:Connect(function()
+    s = false
+    j.Text = "🎲 Roll Now!"
+    k.Visible = false
+    l.Text = "Start Rolling..."
+    m.Text = ""
+end)
+
+local function sendInitialNotification()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "welcome to the goofy tsb rng thing";
+        Text = "report bugs on my discord pls pls pls i beg";
+        Icon = "rbxassetid://14545991435";
+        Duration = 10;
+    })
+end
+
+sendInitialNotification()
+
+local function sendNotification()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "RNG Script by:";
+        Text = "takeachanceagain (Discord)";
+        Icon = "rbxassetid://134810649457295";
+        Duration = 10;
+    })
+end
+
+sendNotification()
