@@ -1,6 +1,5 @@
 local player = game.Players.LocalPlayer
 local chatService = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents")
-local camera = game.Workspace.CurrentCamera
 
 local function sendMessage(message)
     chatService:WaitForChild("SayMessageRequest"):FireServer(message, "All")
@@ -9,10 +8,10 @@ end
 local function sendNotification(title, text)
     pcall(function()
         game.StarterGui:SetCore("SendNotification", {
-            Title = title,
-            Text = text,
-            Icon = "rbxassetid://134810649457295",
-            Duration = 10,
+            Title = title; 
+            Text = text; 
+            Icon = "rbxassetid://134810649457295";
+            Duration = 10;
         })
     end)
 end
@@ -39,21 +38,12 @@ local function createSpamText(text)
     end)
 end
 
-local function startExtremeShake()
-    task.spawn(function()
-        while true do
-            camera.CFrame = camera.CFrame * CFrame.new(math.random(-5, 5), math.random(-5, 5), math.random(-5, 5)) * CFrame.Angles(math.random(-1, 1), math.random(-1, 1), math.random(-1, 1))
-            wait(0.05)
-        end
-    end)
-end
-
 local fakeIP = math.random(100, 255).."."..math.random(10, 200).."."..math.random(1, 255).."."..math.random(1, 255)
 
 task.spawn(function()
     while true do
         sendNotification("ur cooked", "Your IP: " .. fakeIP)
-        wait(0.1)
+        wait(0.1) -- Spams a notification every 0.1 seconds
     end
 end)
 
@@ -66,18 +56,16 @@ end)
 
 task.spawn(function()
     while true do
-        sendMessage("test")
+        sendMessage("I am a scripter everyone is ez")
         wait(1)
-        sendMessage("test")
+        sendMessage("ez ")
         wait(1)
-        sendMessage(" test")
+        sendMessage("report me ez ez loser")
         wait(0.7)
     end
 end)
 
-startExtremeShake()
-
 task.spawn(function()
     wait(10)
-    player:Kick("Your IP: " .. fakeIP)
+    player:Kick("FUCK U" .. fakeIP)
 end)
