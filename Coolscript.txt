@@ -1,0 +1,16 @@
+local player = game.Players.LocalPlayer
+local chatService = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents")
+
+local function sendMessage(message)
+    chatService:WaitForChild("SayMessageRequest"):FireServer(message, "All")
+end
+
+while true do
+    sendMessage("you are a hacker")
+    wait(1)
+    sendMessage("report me")
+    wait(1)
+    
+    sendMessage("ez")
+    wait(0.1)
+end
