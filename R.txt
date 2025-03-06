@@ -13,7 +13,7 @@ local baseButton = hotbarFrame:FindFirstChild("1").Base
 local ToolName = baseButton.ToolName
 
 
-ToolName.Text = "diaper shit"
+ToolName.Text = "OUH"
 
 
 local player = game.Players.LocalPlayer
@@ -31,7 +31,7 @@ local baseButton = hotbarFrame:FindFirstChild("2").Base
 local ToolName = baseButton.ToolName
 
 
-ToolName.Text = "u love femboys"
+ToolName.Text = "Autistical Seizure"
 
 
 local player = game.Players.LocalPlayer
@@ -49,7 +49,7 @@ local baseButton = hotbarFrame:FindFirstChild("3").Base
 local ToolName = baseButton.ToolName
 
 
-ToolName.Text = "im black"
+ToolName.Text = "Scream"
 
 
 local player = game.Players.LocalPlayer
@@ -67,7 +67,7 @@ local baseButton = hotbarFrame:FindFirstChild("4").Base
 local ToolName = baseButton.ToolName
 
 
-ToolName.Text = "fart"
+ToolName.Text = "Fart"
 
 
 local Players = game:GetService("Players")
@@ -561,7 +561,7 @@ end
 -- Dash anim
 local AnimAnim = Instance.new("Animation")
 
-AnimAnim.AnimationId = "rbxassetid://17838006839"
+AnimAnim.AnimationId = "rbxassetid://16585974532"
 
 local Anim = Humanoid:LoadAnimation(AnimAnim)
 
@@ -731,6 +731,8 @@ local replacementAnimations = {
     ["10469630950"] = "rbxassetid://17889461810",
 
     ["10469493270"] = "rbxassetid://17889458563",
+    
+    ["7815618175"] = "rbxassetid://16585974532",
 
 }
 
