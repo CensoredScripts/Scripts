@@ -1,0 +1,85 @@
+local gui = Instance.new("ScreenGui")
+gui.Name = "CandyBlossomGiverV6"
+gui.ResetOnSpawn = false
+gui.Parent = game:GetService("CoreGui")
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 400, 0, 220)
+frame.Position = UDim2.new(0.5, -200, 0.5, -110)
+frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+frame.BorderSizePixel = 0
+frame.AnchorPoint = Vector2.new(0.5, 0.5)
+frame.BackgroundTransparency = 0
+frame.Parent = gui
+frame.Active = true
+frame.Draggable = true
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 45)
+title.Position = UDim2.new(0, 0, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "CandyBlossomGiver V6"
+title.TextColor3 = Color3.fromRGB(255, 105, 180)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 22
+title.Parent = frame
+
+local options = {1, 4, 6}
+local randomCount = options[math.random(1, #options)]
+
+local serverCountLabel = Instance.new("TextLabel")
+serverCountLabel.Size = UDim2.new(1, -20, 0, 30)
+serverCountLabel.Position = UDim2.new(0, 10, 0.25, 0)
+serverCountLabel.BackgroundTransparency = 1
+serverCountLabel.Text = "Available Old Servers: " .. tostring(randomCount)
+serverCountLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+serverCountLabel.Font = Enum.Font.Gotham
+serverCountLabel.TextSize = 16
+serverCountLabel.TextXAlignment = Enum.TextXAlignment.Left
+serverCountLabel.Parent = frame
+
+local teleportBtn = Instance.new("TextButton")
+teleportBtn.Size = UDim2.new(1, -40, 0, 40)
+teleportBtn.Position = UDim2.new(0, 20, 0.5, -10)
+teleportBtn.Text = "Go to Old Server"
+teleportBtn.Font = Enum.Font.GothamMedium
+teleportBtn.TextSize = 18
+teleportBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+teleportBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+teleportBtn.BorderSizePixel = 0
+teleportBtn.AutoButtonColor = true
+teleportBtn.Parent = frame
+
+teleportBtn.MouseButton1Click:Connect(function()
+	local ts = game:GetService("TeleportService")
+	local placeId = game.PlaceId
+	local player = game.Players.LocalPlayer
+	ts:Teleport(placeId, player)
+end)
+
+local candyBtn = Instance.new("TextButton")
+candyBtn.Size = UDim2.new(1, -40, 0, 40)
+candyBtn.Position = UDim2.new(0, 20, 0.7, 0)
+candyBtn.Text = "Get CandyBlossom"
+candyBtn.Font = Enum.Font.GothamMedium
+candyBtn.TextSize = 18
+candyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+candyBtn.BackgroundColor3 = Color3.fromRGB(60, 0, 20)
+candyBtn.BorderSizePixel = 0
+candyBtn.Parent = frame
+
+local errorLabel = Instance.new("TextLabel")
+errorLabel.Size = UDim2.new(1, -20, 0, 35)
+errorLabel.Position = UDim2.new(0, 10, 1, -35)
+errorLabel.Text = ""
+errorLabel.Font = Enum.Font.GothamBold
+errorLabel.TextSize = 14
+errorLabel.TextColor3 = Color3.fromRGB(255, 60, 80)
+errorLabel.BackgroundTransparency = 1
+errorLabel.TextWrapped = true
+errorLabel.TextXAlignment = Enum.TextXAlignment.Left
+errorLabel.Parent = frame
+
+candyBtn.MouseButton1Click:Connect(function()
+	errorLabel.Text = "6B Sheckles Encontrados, Servidor Viejo No Funciónal, Intente de nuevo (Servidores Viejos Disponibles: " .. tostring(randomCount) .. ")"
+end)
